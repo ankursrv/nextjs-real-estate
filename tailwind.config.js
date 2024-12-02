@@ -6,6 +6,19 @@ module.exports = {
     "./app/**/*.{js,ts,jsx,tsx,mdx}",
   ],
   theme: {
+    container: {
+      center: true,
+      padding: {
+        default: "5rem",
+      },
+      screens: {
+        sm: '600px',
+        md: '728px',
+        lg: '984px',
+        xl: '1240px',
+        'xxl': '1300px',
+      },
+    },
     extend: {
       colors: {
         background: "var(--background)",

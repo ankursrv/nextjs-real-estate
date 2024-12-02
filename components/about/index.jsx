@@ -2,17 +2,22 @@ import Image from 'next/image'
 import React from 'react'
 import PrimaryButton from '../ui/primaryButton'
 import SectionTitle from '../ui/sectionTitle'
+import { motion } from "motion/react"
 
 
-const About = ({data}) => {
+const About = ({ data }) => {
     return (
-        <section className='lg:container xl:container p-14 md:px-20 lg:px-32'>
+        <section className='lg:container xl:container p-14 md:px-20 lg:px-32 overflow-hidden'>
             <SectionTitle
                 title1="About"
                 title2="Our Brand"
                 disc="Passionate About Properties, Dedicated to Your Vision"
             />
-            <div className='flex flex-col md:flex-row md:gap-20 items-start justify-center'>
+            <motion.div
+                initial={{ opacity: 0, x: "100%" }}
+                whileInView={{ opacity: 1, x: 0 }}
+                transition={{ duration: 1 }}
+                className='flex flex-col md:flex-row md:gap-20 items-start justify-center'>
                 <Image
                     src="/images/brand_img.png"
                     width={512}
@@ -21,8 +26,8 @@ const About = ({data}) => {
                     className='w-full sm:w-1/2 max-w-lg mx-auto'
                 />
 
-                <div className='w-full text-gray-600 flex flex-col mt-10 items-center md:items-start'>
-                    
+                <div
+                    className='w-full text-gray-600 flex flex-col mt-10 items-center md:items-start'>
                     <ul className='grid grid-cols-2 gap-6 md:gap-10 w-full text-center sm:text-start'>
                         {
                             data.stats.map((item, index) => (
@@ -40,7 +45,7 @@ const About = ({data}) => {
                         Learn More
                     </PrimaryButton>
                 </div>
-            </div>
+            </motion.div>
         </section>
     )
 }
